@@ -20,24 +20,30 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
+    const { year, month, day } = req.body;
 
     try {
-        const { year, month, day } = req.body;
 
         if (!year || !month || !day) {
             return res.render('index', {
                 error: ["Tout les champs n'ont pas été remplies."],
-                age: null
+                age: null,
+                initial_value: {
+                    year: year,
+                    month: month,
+                    day: day
+                }
             });
         }
 
         const currentDate = new Date();
         const inputDate = new Date(year, month - 1, day);
+        const totalDays = new Date(year, month, 0).getDate();
 
         const errors = [];
 
         if (month < 1 || month > 12) errors.push("Le mois n'est pas valide.");
-        if (day < 1 || day > 31) errors.push("Le jour n'est pas valide.");
+        if ((day < 1 || day > 31 ) || day > totalDays) errors.push("Le jour n'est pas valide.");
 
         if (inputDate > currentDate) errors.push("La date est dans le futur.")
 
@@ -62,7 +68,12 @@ app.post('/', (req, res) => {
         if (errors.length > 0) {
             return res.render('index', {
                 error: errors,
-                age: null
+                age: null,
+                initial_value: {
+                    year: year,
+                    month: month,
+                    day: day
+                }
             });
         }
 
@@ -75,6 +86,11 @@ app.post('/', (req, res) => {
                 hours: ageHours,
                 minutes: ageMins,
                 seconds: ageSecs
+            },
+            initial_value: {
+                year: year,
+                month: month,
+                day: day
             }
         });
 
@@ -83,7 +99,12 @@ app.post('/', (req, res) => {
 
         return res.render('index', {
             error: ["Une erreur est survenue."],
-            age: null
+            age: null,
+            initial_value: {
+                year: year,
+                month: month,
+                day: day
+            }
         });
 
     }

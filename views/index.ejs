@@ -26,17 +26,30 @@
                         <div class="form-container">
                             <div class="block">
                                 <label for="day">Day</label>
-                                <input type="number" name="day" id="day" placeholder="DD">
+                                <% if (initial_value) { %>
+                                    <input type="number" name="day" id="day" placeholder="DD" value="<%= initial_value.day %>">
+                                <% } else { %>
+                                    <input type="number" name="day" id="day" placeholder="DD">
+                                <% } %>
                                 <small></small>
+
                             </div>
                             <div class="block">
                                 <label for="month">Months</label>
-                                <input type="number" name="month" id="month" placeholder="MM">
+                                <% if (initial_value) { %>
+                                    <input type="number" name="month" id="month" placeholder="DD" value="<%= initial_value.month %>">
+                                <% } else { %>
+                                    <input type="number" name="month" id="month" placeholder="DD">
+                                <% } %>
                                 <small></small>
                             </div>
                             <div class="block">
                                 <label for="year">Year</label>
-                                <input type="number" name="year" id="year" placeholder="YY">
+                                <% if (initial_value) { %>
+                                    <input type="number" name="year" id="year" placeholder="DD" value="<%= initial_value.year %>">
+                                <% } else { %>
+                                    <input type="number" name="year" id="year" placeholder="DD">
+                                <% } %>
                                 <small></small>
                             </div>
                         </div>
