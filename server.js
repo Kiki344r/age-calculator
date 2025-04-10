@@ -15,7 +15,8 @@ app.use('/assets', express.static(path.join(__dirname, 'assets')));
 app.get('/', (req, res) => {
     res.render('index', {
         error: null,
-        age: null
+        age: null,
+        initial_value: null
     });
 });
 
