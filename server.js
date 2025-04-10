@@ -66,6 +66,25 @@ app.post('/', (req, res) => {
             ageMonth += 12;
         }
 
+        if (ageSecs < 10) {
+            ageSecs = `0${ageSecs}`;
+        }
+        if (ageMins < 10) {
+            ageMins = `0${ageMins}`;
+        }
+        if (ageHours < 10) {
+            ageHours = `0${ageHours}`;
+        }
+        if (ageDay < 10) {
+            ageDay = `0${ageDay}`;
+        }
+        if (ageMonth < 10) {
+            ageMonth = `0${ageMonth}`;
+        }
+        if (ageYear < 10) {
+            ageYear = `0${ageYear}`;
+        }
+
         if (errors.length > 0) {
             return res.render('index', {
                 error: errors,
@@ -81,12 +100,12 @@ app.post('/', (req, res) => {
         return res.render('index', {
             error: null,
             age: {
-                year: parseInt(ageYear),
-                month: parseInt(ageMonth),
-                day: parseInt(ageDay),
-                hours: parseInt(ageHours),
-                minutes: parseInt(ageMins),
-                seconds: parseInt(ageSecs)
+                year: ageYear,
+                month: ageMonth,
+                day: ageDay,
+                hours: ageHours,
+                minutes: ageMins,
+                seconds: ageSecs
             },
             initial_value: {
                 year: year,

@@ -61,25 +61,13 @@
                         </div>
                     </form>
                     <div class="output-content">
-                        <h1><span id="YY">
-                                <%= !age ? "--" : age.year %>
-                            </span>year</h1>
-                        <h1><span id="MM">
-                                <%= !age ? "--" : age.month %>
-                            </span>month</h1>
-                        <h1><span id="DD">
-                                <%= !age ? "--" : age.day %>
-                            </span>days</h1>
+                        <h1><span id="YY"><%= !age ? "--" : age.year %></span><%= age?.year <= 1 ? "year" : "years"%></h1>
+                        <h1><span id="MM"><%= !age ? "--" : age.month %></span><%= age?.month <= 1 ? "month" : "months"%></h1>
+                        <h1><span id="DD"><%= !age ? "--" : age.day %></span><%= age?.day <= 1 ? "day" : "days"%></h1>
 
-                        <h1><span id="HH">
-                                <%= !age ? "--" : age.hours %>
-                            </span>hours</h1>
-                        <h1><span id="MN">
-                                <%= !age ? "--" : age.minutes %>
-                            </span>mins</h1>
-                        <h1><span id="SS">
-                                <%= !age ? "--" : age.seconds %>
-                            </span>secs</h1>
+                        <h1><span id="HH"><%= !age ? "--" : age.hours %></span><%= age?.hours <= 1 ? "hour" : "hours"%></h1>
+                        <h1><span id="MN"><%= !age ? "--" : age.minutes %></span><%= age?.minutes <= 1 ? "minute" : "minutes"%></h1>
+                        <h1><span id="SS"><%= !age ? "--" : age.seconds %></span><%= age?.secondes <= 1 ? "seconde" : "secondes"%></h1>
                     </div>
         </div>
     </div>
