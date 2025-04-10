@@ -81,12 +81,12 @@ app.post('/', (req, res) => {
         return res.render('index', {
             error: null,
             age: {
-                year: ageYear,
-                month: ageMonth,
-                day: ageDay,
-                hours: ageHours,
-                minutes: ageMins,
-                seconds: ageSecs
+                year: parseInt(ageYear),
+                month: parseInt(ageMonth),
+                day: parseInt(ageDay),
+                hours: parseInt(ageHours),
+                minutes: parseInt(ageMins),
+                seconds: parseInt(ageSecs)
             },
             initial_value: {
                 year: year,
