@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/main.css">
+
+    <title>Age calculator app</title>
+</head>
+
+<body>
+    <div class="age-card">
+        <div class="container">
+            <% if (error) { %>
+                <ul>
+                    <% error.forEach(err=> { %>
+                        <li style="color: rgb(255, 0, 0); list-style: none;">
+                            <%= err %>
+                        </li>
+                        <% }) %>
+                </ul>
+                <% } %>
+                    <form action="/" method="post">
+                        <div class="form-container">
+                            <div class="block">
+                                <label for="day">Day</label>
+                                <input type="number" name="day" id="day" placeholder="DD">
+                                <small></small>
+                            </div>
+                            <div class="block">
+                                <label for="month">Months</label>
+                                <input type="number" name="month" id="month" placeholder="MM">
+                                <small></small>
+                            </div>
+                            <div class="block">
+                                <label for="year">Year</label>
+                                <input type="number" name="year" id="year" placeholder="YY">
+                                <small></small>
+                            </div>
+                        </div>
+                        <div class="submit-">
+                            <hr>
+                            <button type="submit" class="submit-btn">
+                                <img class="arrow" src="assets/images/icon-arrow.svg" alt="icon" width="50">
+                            </button>
+                        </div>
+                    </form>
+                    <div class="output-content">
+                        <h1><span id="YY">
+                                <%= !age ? "--" : age.year %>
+                            </span>year</h1>
+                        <h1><span id="MM">
+                                <%= !age ? "--" : age.month %>
+                            </span>month</h1>
+                        <h1><span id="DD">
+                                <%= !age ? "--" : age.day %>
+                            </span>days</h1>
+
+                        <h1><span id="HH">
+                                <%= !age ? "--" : age.hours %>
+                            </span>hours</h1>
+                        <h1><span id="MN">
+                                <%= !age ? "--" : age.minutes %>
+                            </span>mins</h1>
+                        <h1><span id="SS">
+                                <%= !age ? "--" : age.seconds %>
+                            </span>secs</h1>
+                    </div>
+        </div>
+    </div>
+</body>
+
+</html>
