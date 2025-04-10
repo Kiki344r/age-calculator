@@ -1,7 +1,5 @@
-# Etape pour démarrer la page web
+🚀 Démarrage du projet
 
-# 1: Installer les Dépendances: npm i
-
-# 2: Démarrer le serveur Express: npm run start
-
-# 3: Acceder a la Page Web: http://localhost:3000
+🔧 Étape 1 : `npm install`  
+▶️ Étape 2 : `npm run start`  
+🌐 Étape 3 : Aller sur [http://localhost:3000](http://localhost:3000)
